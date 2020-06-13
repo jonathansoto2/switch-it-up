@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Switch It Up</title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="css/materialize.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header-text">
+            <h1>Welcome to Switch It UP</h1>
+            <p>If you can't decide how the teams should be divided up, then this application is perfect for you! </p>
+        </div>
+        <form action="" name="team-info" id="form">
+            <p id="number-error" class="red-text"></p>
+            <p>how many teams?</p>
+        <input type="text" id="team-quantity">
+        <p>how many players per team?</p>
+        <input type="text" id="players-per-team">
+        <input id="next-step-btn" type="button" value="Next Step" class="waves-effect waves-light btn" onclick="askForNames()">
+        </form>
+
+        <form action="" id="players-form">
+            
+
+        </form>
+        <div id="team-section">
+
+        </div>
+
+    </div>
+
+    <script src="js/materialize.min.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
