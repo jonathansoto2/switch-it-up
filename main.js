@@ -36,8 +36,15 @@ function askForNames(){
             console.log("Generating teams...");
             newBTN.classList.add("disabled");
             var playerList = [];
+
+            var reshuffle = document.createElement("input");
+            reshuffle.type = "button";
+            reshuffle.classList.add("waves-effect","waves-light","btn", "move-left");
+            reshuffle.value = "Reshuffle teams";
+            document.getElementById("players-form").appendChild(reshuffle);
+
             //add players to the list
-            for(var i = 0; i < totalPlayers; i ++){
+            for(var i = 0; i < totalPlayers; i++){
                 playerList.push(document.getElementById("new-player-" + (i + 1)).value);
             }
             shuffle(playerList);
@@ -56,7 +63,33 @@ function askForNames(){
                     //append to dom
                     document.getElementById("Team-" + j).appendChild(setPlayer);
                 }
-            }    
+            }   
+            
+            reshuffle.onclick = function(){
+                document.getElementById('team-section').classList.add('hidden');
+                reshuffleList = [];
+                for(var i = 0; i < totalPlayers; i++){
+                    reshuffleList.push(document.getElementById("new-player-" + (i + 1)).value);
+                }
+                shuffle(reshuffleList);
+                for(var j = 0; j < teamQuantity; j++){
+                    var newnewTeam = document.createElement("div");
+                    newnewTeam.id = "New Team-" + j;
+                    document.getElementById("new-team-section").appendChild(newnewTeam);
+                    var newnewTeamTitle = document.createElement("H1");
+                    newnewTeamTitle.innerHTML = "New Team " + (j + 1);
+                    document.getElementById("New Team-" + j).appendChild(newnewTeamTitle);
+                    for(var i = 0; i < playersPerTeam; i++){
+                        //create an elem P
+                        var newsetPlayer = document.createElement("P");
+                        //set elem P to List[random number]
+                        newsetPlayer.innerHTML = reshuffleList.pop();
+                        //append to dom
+                        document.getElementById("New Team-" + j).appendChild(newsetPlayer);
+                    }
+                }   
+                reshuffle.classList.add("disabled");
+            }
             console.log(playerList);
 
 
